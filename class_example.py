@@ -11,8 +11,12 @@ class person:
     def __return_income(self):
         return self.__income
 
-john = person('John',20,2500)
-alice = person('Alice',21,2000)
+    @__return_income.setter
+    def __return_income(self, income1):
+        self.__income = income1
+
+john = person('John', 20, 2500)
+alice = person('Alice', 21, 2000)
 
 john.display()
 alice.display()
