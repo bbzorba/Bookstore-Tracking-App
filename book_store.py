@@ -1,3 +1,5 @@
+store_addresses = ["Kecioren, Tunali Hilmi St., No:45, Ankara, Turkey",
+                   "Cankaya, Ataturk Blvd., No:120, Ankara, Turkey"]
 books = []
 books_by_George_Orwell = []
 
@@ -10,6 +12,12 @@ class Book:
         self.isbn = isbn
         self.price = price
         self.copies = copies
+    
+    @staticmethod
+    def list_store_addresses():
+        print("\nOur store addresses are:")
+        for address in store_addresses:
+            print("-", address)
 
     def display_info(self):
         return f"'{self.title}' by {self.author}, published by {self.publisher}, has {self.pages} pages, ISBN: {self.isbn}, priced at ${self.price:.2f}, Copies available: {self.copies}"
@@ -47,6 +55,8 @@ class Book:
     
 
 if __name__ == '__main__':
+    Book.list_store_addresses()
+    
     book1 = Book("1984", "George Orwell", "Secker & Warburg", 328, "978-0451524935", 9.99, 12)
     book2 = Book("To Kill a Mockingbird", "Harper Lee", "J.B. Lippincott & Co.", 281, "978-0061120084", 7.99, 0)
     book3 = Book("The Great Gatsby", "F. Scott Fitzgerald", "Charles Scribner's Sons", 180, "978-0743273565", 10.99, 5)
