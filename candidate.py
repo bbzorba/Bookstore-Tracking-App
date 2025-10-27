@@ -1,10 +1,10 @@
 class Candidate:
     candidate_list = []
 
-    def __init__(self, name, age, experience):
-        self._name = name
-        self._age = age
-        self._experience = experience
+    def __init__(self, name_cnd, age_cnd, experience_cnd):
+        self._name = name_cnd
+        self._age = age_cnd
+        self._experience = experience_cnd
         self.links = []
     
     @classmethod
@@ -22,12 +22,14 @@ class Candidate:
     # Method to check eligibility based on experience
     def is_eligible(self, min_experience):
         return self._experience >= min_experience
-    
-    def show_links(self):
-        if not self.links:
-            print(f"{self._name} has no links")
-            return
-        print(f"Links for {self._name}:")
-        for c, relation in self.links:
-            name = getattr(c, 'name', getattr(c, '_name', str(c)))
-            print(f"- {relation} -> {name}")
+
+
+# polymorphic method to show links
+def show_links(instance):
+    if not instance.links:
+        print(f"{instance._name} has no links")
+        return
+    print(f"Links for {instance._name}:")
+    for c, relation in instance.links:
+        name = getattr(c, 'name', getattr(c, '_name', str(c)))
+        print(f"- {relation} -> {name}")

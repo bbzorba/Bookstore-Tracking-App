@@ -1,14 +1,14 @@
 from employee import Employee
-from candidate import Candidate
+from candidate import Candidate, show_links
 
 if __name__ == '__main__':
 
     print('\n--- Employee and Candidate Management System ---\n')
 
-    john_employee = Employee.add_employee('John-23-2500')
-    alice_employee = Employee.add_employee('Alice-28-2800')
-    dennis_candidate = Candidate.add_candidate({'name':'Dennis', 'age':30, 'experience':5})
-    martha_candidate = Candidate.add_candidate({'name':'Martha', 'age':35, 'experience':10})
+    john_employee = Employee.add_employee('John-33-10-2500')
+    alice_employee = Employee.add_employee('Alice-28-5-2800')
+    dennis_candidate = Candidate.add_candidate({'name':'Dennis', 'age':22, 'experience':1})
+    martha_candidate = Candidate.add_candidate({'name':'Martha', 'age':25, 'experience':3})
 
     #associated with the class, not the instance
     Employee.list_employees()
@@ -21,7 +21,10 @@ if __name__ == '__main__':
     
     print("\n")
 
-    #print('Attributes of the john instance of employee class: \n',dir(john))
+    show_links(john_employee)
+    show_links(alice_employee)
+    show_links(dennis_candidate)
+    show_links(martha_candidate)
 
     #printing the private variable from a private method
     print(john_employee._name, 'earns', john_employee._Employee__return_salary, '€')
@@ -36,5 +39,5 @@ if __name__ == '__main__':
     print("\n")
 
     #creating an employee from a candidate
-    dennis_employee = Employee.from_candidate(dennis_candidate, 3200)
+    dennis_employee = Employee.from_candidate(dennis_candidate, 2200)
     print(dennis_employee._name, 'earns', dennis_employee._Employee__return_salary, '€\n')
